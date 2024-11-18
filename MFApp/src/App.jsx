@@ -1,6 +1,8 @@
 import React, { useState, useEffect, lazy, Suspense} from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
+import VeuJs from "./components/VueJs.jsx";
+import JsApp from "./components/JsApp.jsx";
 
 const CardDeatils = lazy(() => import("DetailCardInHost/CardDetails"));
 const CardShort = lazy(() => import("ShortCardInHost/CardShort"));
@@ -27,10 +29,11 @@ const App = () => {
   return (
     <>
       <Header />
-
+      <VeuJs />
+      <JsApp />
       <div className="short-list-container">
       <Suspense fallback={<p>Loading...</p>}>
-        {detailItems.length && detailItems.map(item => {
+        {shortItems.length && shortItems.map(item => {
             return <CardShort key={item.id} data={item}></CardShort>
           })}
         </Suspense>
